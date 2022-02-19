@@ -1,0 +1,70 @@
+/* ==================== General ==================== */
+.page-container {
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4vh;
+}
+
+/* ==================== Redirect Link ==================== */
+.link-container {
+  padding: 12px;
+  border-bottom: solid 1px grey;
+  transition: all 0.5s ease-in-out;
+}
+
+.link-container:hover {
+  border-bottom: solid 1px white;
+  transform: translate(0px, -2px);
+  transition: all 0.5s ease-in-out;
+}
+
+.link-container:hover .redirect-link {
+  color: whitesmoke;
+  transform: border 2s ease;
+  padding-bottom: 8px;
+}
+
+.redirect-link {
+  font-size: 16px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+/* ==================== Stats ==================== */
+.stats-container {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8vh;
+}
+
+/* ==================== Graph ==================== */
+.graph-container {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
+}
+
+/* ==================== Responsiveness ==================== */
+@media (max-width: 600px) {
+  .page-container {
+    margin-bottom: 8vh;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    margin-top: 6vh;
+  }
+
+  .graph-container {
+    height: 40vh;
+    width: 90%;
+    margin-right: 10%;
+    margin-top: 6vh;
+  }
+}

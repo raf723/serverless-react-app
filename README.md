@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+# Jamstack App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Jamstack projects separate the frontend from the backend apps and databases. Freed from backend servers, the frontend can then be deployed globally, directly to a CDN whilst dynamic content can be served via APIs - thus allowing for increased performance and security whilst allowing for more modular development.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Creating a URL redirector for mobile app links to the corresponding app stores using AWS Lambda, API Gateway and DynamoDB e.g. if an iPhone user visits the URL, it will redirect them to the App Store - complimented with a website built using ReactJS to table the stat counts.
 
-### `npm start`
+## Walkthrough
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Head over to the AWS console and create a DynamoDB table.
+2. Create IAM roles with custom policies. The first role and policy should only have read access (scan and query) to the DynamoDB table whereas the second role and policy should only have write access (put item) for enhanced security.
+3. Create the first Lambda function which analyses the "User-Agent" from the event's headers to define the redirect URL. The function should also write a record to the DynamoDB table every time it's triggered e.g. every time a redirect occurs, create a record in the table which notes the OS.
+4. Assign the write access IAM role to this Lambda function.
+5. Head over to API Gateway in the AWS console to create a REST API endpoint which invokes the Lambda function.
+6. You can now test and deploy the first API.
+7. Create a second Lambda function and REST API endpoint - this second Lambda function should read the DynamoDB table to get the count of records by OS (hence the read access IAM role).
+8. Create a frontend application using React.
+9. This frontend can now make API calls to the second Lambda function to serve dynamic content (display a table of the number of redirects by OS).
+10. Deploy the frontend to Netlify.
