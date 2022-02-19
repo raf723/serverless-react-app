@@ -25,6 +25,6 @@ Visit https://serverless-react-app.netlify.app
 5. Head over to API Gateway in the AWS console to create a REST API endpoint which invokes the Lambda function.
 6. You can now test and deploy the first API.
 7. Create a second Lambda function and REST API endpoint - this second Lambda function should read the DynamoDB table to get the count of records by OS (hence the read access IAM role).
-8. Create a frontend application using React.
-9. This frontend can now make API calls to the second Lambda function to serve dynamic content (display a table of the number of redirects by OS).
+8. Create a frontend application using React, a framework fo your choice or none at all.
+9. The frontend can now make API calls to the second Lambda function to serve dynamic content (display a table of the number of redirects by OS).
 10. Deploy the frontend to Netlify.
