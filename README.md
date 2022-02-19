@@ -6,8 +6,16 @@ Jamstack projects separate the frontend from the backend apps and databases. Fre
 
 Creating a URL redirector for mobile app links to the corresponding app stores using AWS Lambda, API Gateway and DynamoDB e.g. if an iPhone user visits the URL, it will redirect them to the App Store - complimented with a website built using ReactJS to table the stat counts.
 
-## Installation
+## Demo
+
 Visit https://serverless-react-app.netlify.app
+
+## Installation
+
+1. Clone this repo
+2. `npm install react-circular-progressbar`
+3. `npm install recharts`
+4. Run `npm start`
 
 ## Walkthrough
 
