@@ -14,8 +14,6 @@ Visit https://serverless-react-app.netlify.app
 
 1. Clone this repo
 2. `npm install`
-3. `npm install react-circular-progressbar`
-4. `npm install recharts`
 5. `npm start`
 
 ## Walkthrough
