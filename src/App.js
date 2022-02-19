@@ -14,7 +14,7 @@ export default function App() {
 
   const getData = async () => {
     const apiResponse = await fetch(
-      `https://pm4cl2wa8a.execute-api.eu-west-2.amazonaws.com/dev`,
+      `https://pm4cl2wa8a.execute-api.eu-west-2.amazonaws.com/dev`, // Replace with the endpoint for your readRedirects Lambda
       {
         headers: { "Content-Type": "application/json" },
       }
@@ -32,7 +32,7 @@ export default function App() {
     <div className="page-container">
       <div className="link-container">
         <a
-          href="https://11fognbk8e.execute-api.eu-west-2.amazonaws.com/dev"
+          href="https://11fognbk8e.execute-api.eu-west-2.amazonaws.com/dev" // Replace with the endpoint for your osRedirect Lambda
           target="_blank"
           rel="noreferrer"
           onClick={getData()}
